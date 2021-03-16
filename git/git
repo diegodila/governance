@@ -1,0 +1,130 @@
+git init \ iniciar o repositorio na maquina, transforma a pasta em um repositorio
+
+git init --bare \ cria um repositorio que não terá a working tree, que só serve para armazenar as alterações, não conterá a copia dos nossos arquivos. Como repositorio servirá apenas de servidor, para que outros membros da equipe sincronizem seus trabalhos
+
+-----------------------------------------------------------------------------------------
+
+git config \ modificar ou configurar
+
+git config --global user.name "Diego Ferreira goncalves"
+
+git config user.email \ visualizar
+
+git config user.name \ visualizar
+
+git config --global credential.helper 'cache --timeout=28800' \ SALVA USUARIO E SENHA POR 8 HORAS
+
+git config --global credential.helper cache \ SALVA USUARIO E SENHA PERMANENTE
+
+git config --list \ lista todas as configurações do git
+
+----------------------------------------------------------------------------------------
+
+git log \ mostra historico de commits
+
+git log --help \ ver opções possiveis
+
+git log -p \ alterações do commit linha a linha
+
+git log -b \ log dos commits
+
+git log --oneline \ uma linha de log
+
+git diff cd69040..1ca982b \ mostra o que mudou entre um commit e outro
+
+-------------------------------------------------------------------------------------------
+
+.gitignore \ arquivo especial, que dentro dele escrevemos o arquivo que ele quer ignorar
+
+git remote \ mostra quais repositorios remotos eu tenho
+
+git remote add [nome-repo\origin] [url do repositorio] \ que pode ser um endereço, uma pasta, pode ser uma url de um servidor pela internet
+
+git remote add origin https:\github.com/dieffgg/raizen.git \ adiciona raizen.git como repositorio remoto 
+
+git remote -v \ mostra o repositorio remoto de onde busca a onde envia
+
+git remote rename beanstalk origin \ renomeando repo remoto
+
+git remote set-url origin --push --add <a remote> \ set repo remote (origin) como push
+
+git remote set-url origin --push --add <another remote> \ set repo remote push
+--------------------------------------------------------------------------------------------
+
+Fetch - busca dados
+
+Push - envia dados
+
+git push \ mandar alterações para o remoto
+
+git push origin master \ envia as alterações para o repositório remoto
+
+git push -u \ atrela a branch remota a local, fazendo que não seja mais necessario passar parametros a origem e a branch no comando push que fica:git push
+
+git push origin :nome_do_branch \deleta brach remota
+
+git push -d [nome-repositorio-remote] [branch]\ deleta branch remota
+
+git pull origin master\ sincroniza o repositorio local com alterações do remoto
+
+git fetch origin \ podemos verificar todas as atualizações que foram feitas no repositorio
+
+-------------------------------------------------------------------------------------
+
+git branch \ verifica quais branchs estão no projeto
+
+git branch [nome-branch] \ cria nova branch
+
+git branch -d nome-do-branch \ deleta a branch local
+
+git branch -D <nome do branch> \ deleta a branch remota
+
+git push origin --delete [nome-da-branch-remota]
+
+git branch -r \ mostra todas as branchs do repositorio remoto
+
+git branch -t [branch] [nome-repositorio-remoto/nome-branch-remota] \ copia a branch remota para o local, diz qual é a branch remota corresponde da que estamos criando, cria a branch local já ligado com o remoto
+
+git branch -a \ remoto e locais são mostradas
+
+--------------------------------------------------------------------------------------
+
+git push [\origin] [nome-branch] \ cria uma nova branch remoto
+
+git push -u [\origin] [nome-branch] \ diz que a branch local deve ser igual a remota
+
+git push -u origin dev \ set configura o repositorio local e remoto
+
+--------------------------------------------------------------------------------------
+
+git checkout [branch] \ passando o nome da branch para qual desejamos mudar
+
+git checkout -b [nome-branch] \ cria e já muda de branch
+
+git checkout -t [nome-branch] \ cria, muda e linka entre local e remota
+
+git checkout -- . \ volta ao estado atual
+
+git revert 6e61027986ec920aba7b2f3d72a5888ddc2d12b8 \ revert com o hash do commit
+
+-----------------------------------------------------------------------------------
+
+git ls-files \ mostra quais arquivos o git controla
+
+git status \ mostra o status do aquivo, se foi modificado ou não
+
+git add . \ add no contexto atual 
+
+git commit -a \ inclui imediatamente no commit todos os arquivos modificados ou removidos, porem, ele não adiciona arquivos novos
+
+-------------------------------------------------------------------------------------
+
+git submodule add <url-repositorio> diretorio \ add url 
+Exemplo: git submodule add git@bitbucket.org:rivendel/csv-imports.git import/csv
+
+Inicializando o Submodule
+git submodule init \ iniciando o submodule 
+
+Atualizando as configurações
+git submodule update \ Esse comando irá carregar toda a configuração necessária, caso tenha feito alterações em seus submodulos.
+
